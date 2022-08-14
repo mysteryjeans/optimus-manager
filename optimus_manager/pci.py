@@ -122,7 +122,7 @@ def _search_bus_ids(match_pci_class, match_vendor_id, notation_fix=True):
             # hexadecimal format without any leading zeroes and prefixed with
             # `PCI:`, so `3c:00:0` should become `PCI:60:0:0`
             bus_id = "PCI:" + ":".join(
-                f'{int(field, 16):02}' for field in re.split("[.:]", bus_id)
+                f'{int(field, 16):02}' for field in re.split("[.:]", bus_id)[-3:]
             )
 
         pci_class = items[1][:-1]
